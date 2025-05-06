@@ -11,16 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prodis', function (Blueprint $table) {
+        Schema::create('mahasiswas', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
             $table->string('nama',30);
-            $table->char('singkatan',2);
-            $table->string('kaprodi',30);
-            $table->string('sekretaris',30);
-            $table->uuid('fakultas_id');
-            $table->foreign('fakultas_id')->references
-            ('id')->on('fakultas')->onDelete
+            $table->string('npm',11);
+            $table->enum('jk',['L','P']);
+            $table->date('tanggal_lahir');
+            $table->string('tempat_lahir',30);
+            $table->string('asal_sma',50);
+            $table->string('foto',50);
+            $table->uuid('prodis_id');
+            $table->foreign('prodis_id')->references
+            ('id')->on('prodis')->onDelete
             ('restrict')->onUpdate('restrict');
             $table->timestamps();
         });
@@ -31,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prodis');
+        Schema::dropIfExists('mahasiswas');
     }
 };
