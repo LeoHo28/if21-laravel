@@ -30,9 +30,11 @@
             </div>
             </div>
             <div class="card-body">
+                <a href="{{ route('mahasiswa.create') }}" class="btn btn-primary">Tambah</a>
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>NPM</th>
                             <th>Nama</th>
                             <th>Program Studi</th>
@@ -42,6 +44,7 @@
                     <tbody>
                         @foreach ($mahasiswa as $item)
                         <tr>
+                            <td><img src=" {{ asset('storage/images/'. $item->foto)  }}" width="80px" /></td>
                             <td>{{ $item->npm }}</td>
                             <td>{{ $item->nama }}</td>
                             <td>{{ $item->prodi->nama }}</td>
