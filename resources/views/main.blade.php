@@ -446,6 +446,17 @@
             });
     });
 </script>
+
+@session('success')
+<script>
+  swal({
+  title: "Good job!",
+  text: "{{ session('success') }}",
+  icon: "success"
+});
+</script>
+@endsession
+
   </body>
   <!--end::Body-->
 </html>
